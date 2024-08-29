@@ -10,7 +10,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@fastify/express": "^3.0.0",
     "fastify" : "4.x",
     "lodash": "^4.17.21",
     "node-fetch": "2.7.0",
