@@ -57,13 +57,13 @@ function proxy(req, res) {
       req.params.originSize = response.headers.get('content-length') || '0';
 
       copyHeaders(response, res);
-      res.setHeader('content-encoding', 'identity');
+      res.header('content-encoding', 'identity');
 
       if (shouldCompress(req)) {
         return compress(req, res, response.body);
       } else {
-        res.setHeader('x-proxy-bypass', 1);
-        res.setHeader('content-length', req.params.originSize);
+        res.header('x-proxy-bypass', 1);
+        res.header('content-length', req.params.originSize);
         return response.body.pipe(res);
       }
     })
