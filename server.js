@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // Set up the route
 app.get('/', async (request, reply) => {
-  return processRequest(request, reply);
+  return proxy(request, reply);
 });
 
 // Start the server
