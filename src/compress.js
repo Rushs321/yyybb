@@ -14,9 +14,9 @@ function compress(req, res, input) {
 
   input.pipe(transform)
     .on('info', info => {
-      res.setHeader('content-type', `image/${format}`);
-      res.setHeader('x-original-size', req.params.originSize);
-      res.setHeader('x-bytes-saved', req.params.originSize - info.size);
+      res.header('content-type', `image/${format}`);
+      res.header('x-original-size', req.params.originSize);
+      res.header('x-bytes-saved', req.params.originSize - info.size);
       res.status(200);
     })
     .on('error', () => redirect(req, res))
